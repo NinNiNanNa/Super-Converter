@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #ebe2e0;
+}
+.wrap {
+  width: 100%;
+  max-width: 530px;
+  margin: 0 auto;
+}
+.gap {
+  margin: 0 15px;
+}
+.container {
+  width: 100%;
+}
+
+.titleWrap {
+  background-color: #c4afd3;
+  border-bottom: 2px solid #000;
+}
+.titleWrap .container {
+  display: flex;
+  align-items: center;
+}
+.titleWrap img {
+  width: 50px;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.titleWrap h1 {
+  margin-left: 15px;
+}
+
+/* input, label */
+.inputWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.inputWrap div:first-child,
+.inputWrap div:last-child {
+  flex: 1 0 0;
+}
+.inputWrap label {
+  display: block;
+  padding: 5px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.inputWrap .equalSign {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.inputWrap input {
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  outline: none;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Reset버튼, Switch버튼 */
+.buttonWrap {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resetWrap {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.resetWrap h3 {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: normal;
+}
+.resetBtn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  background-color: #ffdd00;
+}
+.resetBtn img {
+  width: 30px;
+  height: 30px;
+  margin-top: -1px;
+  transition: all 0.2s ease-in;
+}
+.resetBtn:hover img {
+  transform: rotate(360deg);
+}
+
+.switchWrap {
+  display: flex;
+  align-items: center;
+}
+.switchWrap h3 {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: normal;
+}
+.toggleSwitch {
+  width: 70px;
+  height: 35px;
+  position: relative;
+  display: inline-block;
+  border-radius: 30px;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  background-color: #88aeec;
+  cursor: pointer;
+}
+.toggleSwitch .toggleButton {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  background: #fff;
+}
+.toggleSwitch,
+.toggleButton {
+  transition: all 0.2s ease-in;
+}
+#toggle:checked ~ .toggleSwitch .toggleButton {
+  left: calc(100% - 30px);
+  background: #fff;
+}

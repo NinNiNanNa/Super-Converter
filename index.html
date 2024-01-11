@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Converter</title>
+    <!-- <link rel="icon" type="image/ico" href="favicon.ico" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function MinutesToHours() {
+      return (
+        <div>
+          <div className="inputWrap">
+            <div>
+              <label htmlFor="minutes">Minutes</label>
+              <input id="minutes" type="number" />
+            </div>
+            <div className="equalSign">=</div>
+            <div>
+              <label htmlFor="minutes">Hours</label>
+              <input id="minutes" type="number" />
+            </div>
+          </div>
+          <div className="buttonWrap">
+            <div className="resetWrap">
+              <div className="resetBtn">
+                <img src="img/undo.png" alt="" />
+              </div>
+              <h3>Reset</h3>
+            </div>
+
+            <div className="switchWrap">
+              <h3>Minutes</h3>
+              <input type="checkbox" id="toggle" hidden />
+              <label for="toggle" className="toggleSwitch">
+                <span className="toggleButton"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    function KmToMiles() {}
+    function App() {
+      return (
+        <div>
+          <div className="titleWrap">
+            <div className="wrap">
+              <div className="gap">
+                <div className="container">
+                  <img src="./img/calculator.png" alt="" />
+                  <h1>Super Converter</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="wrap">
+            <div className="gap">
+              <div className="container">
+                <MinutesToHours />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
