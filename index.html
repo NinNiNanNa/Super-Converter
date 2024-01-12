@@ -15,31 +15,66 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function MinutesToHours() {
+      const [minutes, setMinutes] = React.useState(0);
+      const [hours, setHours] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const reset = () => {
+        setMinutes(0);
+        setHours(0);
+      };
+      const onInvert = () => {
+        const toggleSwitchBtn = document.querySelector(".toggleButton");
+        toggleSwitchBtn.classList.toggle("toggle");
+        setInverted((current) => !inverted);
+      };
+      const onChange1 = (e) => {
+        const num = e.target.value / 60;
+        setMinutes(e.target.value);
+        setHours(Math.round(num * 100) / 100);
+      };
+      const onChange2 = (e) => {
+        const num = e.target.value * 60;
+        setMinutes(num);
+        setHours(e.target.value);
+      };
       return (
         <div>
           <div className="inputWrap">
             <div>
               <label htmlFor="minutes">Minutes</label>
-              <input id="minutes" type="number" />
+              <input
+                value={minutes}
+                id="minutes"
+                type="number"
+                min="0"
+                disabled={inverted}
+                onChange={onChange1}
+              />
             </div>
             <div className="equalSign">=</div>
             <div>
-              <label htmlFor="minutes">Hours</label>
-              <input id="minutes" type="number" />
+              <label htmlFor="hours">Hours</label>
+              <input
+                value={hours}
+                id="hours"
+                type="number"
+                min="0"
+                disabled={!inverted}
+                onChange={onChange2}
+              />
             </div>
           </div>
           <div className="buttonWrap">
             <div className="resetWrap">
-              <div className="resetBtn">
+              <div className="resetBtn" onClick={reset}>
                 <img src="img/undo.png" alt="" />
               </div>
               <h3>Reset</h3>
             </div>
-
             <div className="switchWrap">
               <h3>Minutes</h3>
               <input type="checkbox" id="toggle" hidden />
-              <label for="toggle" className="toggleSwitch">
+              <label for="toggle" className="toggleSwitch" onClick={onInvert}>
                 <span className="toggleButton"></span>
               </label>
             </div>
@@ -47,15 +82,169 @@
         </div>
       );
     }
-    function KmToMiles() {}
+    function KmToMiles() {
+      const [kilometers, setKilometers] = React.useState(0);
+      const [miles, setMiles] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const reset = () => {
+        setKilometers(0);
+        setMiles(0);
+      };
+      const onInvert = () => {
+        const toggleSwitchBtn = document.querySelector(".toggleButton");
+        toggleSwitchBtn.classList.toggle("toggle");
+        setInverted((current) => !inverted);
+      };
+      const onChange1 = (e) => {
+        const num = e.target.value / 1.609;
+        setKilometers(e.target.value);
+        setMiles(num.toFixed(6));
+      };
+      const onChange2 = (e) => {
+        const num = e.target.value * 1.609;
+        setKilometers(num);
+        setMiles(e.target.value);
+      };
+      return (
+        <div>
+          <div className="inputWrap">
+            <div>
+              <label htmlFor="kilometers">Km</label>
+              <input
+                value={kilometers}
+                id="kilometers"
+                type="number"
+                min="0"
+                disabled={inverted}
+                onChange={onChange1}
+              />
+            </div>
+            <div className="equalSign">=</div>
+            <div>
+              <label htmlFor="miles">Mile</label>
+              <input
+                value={miles}
+                id="miles"
+                type="number"
+                min="0"
+                disabled={!inverted}
+                onChange={onChange2}
+              />
+            </div>
+          </div>
+          <div className="buttonWrap">
+            <div className="resetWrap">
+              <div className="resetBtn" onClick={reset}>
+                <img src="img/undo.png" alt="" />
+              </div>
+              <h3>Reset</h3>
+            </div>
+            <div className="switchWrap">
+              <h3>Minutes</h3>
+              <input type="checkbox" id="toggle" hidden />
+              <label for="toggle" className="toggleSwitch" onClick={onInvert}>
+                <span className="toggleButton"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    function InchesToCentimeters() {
+      const [inches, setInches] = React.useState(0);
+      const [centimeters, setCentimeters] = React.useState(0);
+      const [inverted, setInverted] = React.useState(false);
+      const reset = () => {
+        setInches(0);
+        setCentimeters(0);
+      };
+      const onInvert = () => {
+        const toggleSwitchBtn = document.querySelector(".toggleButton");
+        toggleSwitchBtn.classList.toggle("toggle");
+        setInverted((current) => !inverted);
+      };
+      const onChange1 = (e) => {
+        const num = e.target.value * 2.54;
+        setInches(e.target.value);
+        setCentimeters(num);
+      };
+      const onChange2 = (e) => {
+        const num = e.target.value / 2.54;
+        setInches(num.toFixed(6));
+        setCentimeters(e.target.value);
+      };
+      return (
+        <div>
+          <div className="inputWrap">
+            <div>
+              <label htmlFor="inches">Inch</label>
+              <input
+                value={inches}
+                id="inches"
+                type="number"
+                min="0"
+                disabled={inverted}
+                onChange={onChange1}
+              />
+            </div>
+            <div className="equalSign">=</div>
+            <div>
+              <label htmlFor="centimeters">Cm</label>
+              <input
+                value={centimeters}
+                id="centimeters"
+                type="number"
+                min="0"
+                disabled={!inverted}
+                onChange={onChange2}
+              />
+            </div>
+          </div>
+          <div className="buttonWrap">
+            <div className="resetWrap">
+              <div className="resetBtn" onClick={reset}>
+                <img src="img/undo.png" alt="" />
+              </div>
+              <h3>Reset</h3>
+            </div>
+            <div className="switchWrap">
+              <h3>Minutes</h3>
+              <input type="checkbox" id="toggle" hidden />
+              <label for="toggle" className="toggleSwitch" onClick={onInvert}>
+                <span className="toggleButton"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      );
+    }
     function App() {
+      const [index, setIndex] = React.useState();
+      const onClickMain = () => {
+        const mainMenu = document.querySelector(".mainMenu");
+        mainMenu.classList.remove("toggle");
+        setIndex();
+      };
+      const onSelect = (e) => {
+        const mainMenu = document.querySelector(".mainMenu");
+        mainMenu.classList.toggle("toggle");
+      };
+      const onClickMenu = (e) => {
+        const mainMenu = document.querySelector(".mainMenu");
+        mainMenu.classList.remove("toggle");
+        setIndex(e.target.value);
+      };
       return (
         <div>
           <div className="titleWrap">
             <div className="wrap">
               <div className="gap">
                 <div className="container">
-                  <img src="./img/calculator.png" alt="" />
+                  <img
+                    src="./img/calculator.png"
+                    alt=""
+                    onClick={onClickMain}
+                  />
                   <h1>Super Converter</h1>
                 </div>
               </div>
@@ -64,7 +253,51 @@
           <div className="wrap">
             <div className="gap">
               <div className="container">
-                <MinutesToHours />
+                <div className="mainMenuWrap">
+                  <button className="selectBtn" onClick={onSelect}>
+                    {index === 0
+                      ? "Minutes To Hours"
+                      : index === 1
+                      ? "Kilometers To Miles"
+                      : index === 2
+                      ? "Inches To Centimeters"
+                      : "Please select your units"}
+                  </button>
+                  <ul className="mainMenu">
+                    <li
+                      value="0"
+                      onClick={onClickMenu}
+                      className={index === 0 ? "active" : ""}
+                    >
+                      Minutes To Hours
+                    </li>
+                    <li
+                      value="1"
+                      onClick={onClickMenu}
+                      className={index === 1 ? "active" : ""}
+                    >
+                      Kilometers To Miles
+                    </li>
+                    <li
+                      value="2"
+                      onClick={onClickMenu}
+                      className={index === 2 ? "active" : ""}
+                    >
+                      Inches To Centimeters
+                    </li>
+                  </ul>
+                </div>
+                <div className="contentWrap">
+                  {index === 0 ? (
+                    <MinutesToHours />
+                  ) : index === 1 ? (
+                    <KmToMiles />
+                  ) : index === 2 ? (
+                    <InchesToCentimeters />
+                  ) : (
+                    <img src="img/mainImg.png" alt="" />
+                  )}
+                </div>
               </div>
             </div>
           </div>
