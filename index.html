@@ -72,7 +72,7 @@
               <h3>Reset</h3>
             </div>
             <div className="switchWrap">
-              <h3>Minutes</h3>
+              <h3>{inverted ? "Hours" : "Minutes"}</h3>
               <input type="checkbox" id="toggle" hidden />
               <label for="toggle" className="toggleSwitch" onClick={onInvert}>
                 <span className="toggleButton"></span>
@@ -121,7 +121,7 @@
             </div>
             <div className="equalSign">=</div>
             <div>
-              <label htmlFor="miles">Mile</label>
+              <label htmlFor="miles">Miles</label>
               <input
                 value={miles}
                 id="miles"
@@ -140,7 +140,7 @@
               <h3>Reset</h3>
             </div>
             <div className="switchWrap">
-              <h3>Minutes</h3>
+              <h3>{inverted ? "Miles" : "Km"}</h3>
               <input type="checkbox" id="toggle" hidden />
               <label for="toggle" className="toggleSwitch" onClick={onInvert}>
                 <span className="toggleButton"></span>
@@ -208,7 +208,7 @@
               <h3>Reset</h3>
             </div>
             <div className="switchWrap">
-              <h3>Minutes</h3>
+              <h3>{inverted ? "cm" : "Inch"}</h3>
               <input type="checkbox" id="toggle" hidden />
               <label for="toggle" className="toggleSwitch" onClick={onInvert}>
                 <span className="toggleButton"></span>
